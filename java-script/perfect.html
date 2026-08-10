@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfect Number Check</title>
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#f4f4f4;
+        }
+
+        .container{
+            width:350px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+            text-align:center;
+        }
+
+        button{
+            width:100%;
+            margin-top:10px;
+        }
+
+        #result{
+            margin-top:15px;
+            font-weight:bold;
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3>Perfect Number Check</h3>
+
+    <input type="number" id="num" placeholder="Enter Number">
+
+    <button onclick="checkPerfect()">Check</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function checkPerfect() {
+
+    let n = Number(document.getElementById("num").value);
+    let sum = 0;
+
+    for(let i = 1; i < n; i++) {
+        if(n % i == 0) {
+            sum += i;
+        }
+    }
+
+    if(sum == n) {
+        document.getElementById("result").innerHTML =
+        n + " is a Perfect Number";
+    }
+    else {
+        document.getElementById("result").innerHTML =
+        n + " is Not a Perfect Number";
+    }
+}
+</script>
+
+</body>
+</html>

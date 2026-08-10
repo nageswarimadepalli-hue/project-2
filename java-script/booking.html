@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Booking</title>
+</head>
+<body>
+
+<h2>Hotel Room Booking</h2>
+
+Age:
+<input type="number" id="age"><br><br>
+
+ID Proof (Yes/No):
+<input type="text" id="id"><br><br>
+
+<button onclick="book()">Book Room</button>
+
+<h3 id="result"></h3>
+
+<script>
+function book() {
+
+    let age = Number(document.getElementById("age").value);
+    let id = document.getElementById("id").value;
+
+    if (age >= 18 && id.toLowerCase() == "yes") {
+        result.innerHTML = "Room Booked Successfully";
+    } else {
+        result.innerHTML = "Booking Rejected";
+    }
+
+}
+</script>
+
+</body>
+</html>

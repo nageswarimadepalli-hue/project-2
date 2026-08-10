@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <style>
+         .container{
+            width: 100%;
+            height: 60vh;
+            border-radius: 15px;
+            color:blue;
+            background-color: pink;
+            padding: 50px;
+         }
+         table{
+            width:100%;
+            margin-top:30px;
+        }
+
+        th,td{
+            border:1px solid #ddd;
+            padding:15px;
+            text-align:center;
+        }
+
+        th{
+            background-color:white;
+            color:black;
+        }
+        .btn-primary{
+            width: 20%;
+        }
+        </style>
+</head>
+<body>
+     <div class="container">
+        <div class="calaulator">
+    <div class="mb-3">
+        <label class="form-label">Val1</label>
+        <input type="number" class="form-control" id="Val1">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Val2</label>
+        <input type="number" class="form-control" id="Val2">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="add()"> Addition</button>
+    <button type="button" class="btn btn-primary" onclick="sub()">Subtrction</button>
+    <button type="button" class="btn btn-primary" onclick="mul()">Multiplication</button>
+    <button type="button" class="btn btn-primary" onclick="div()">Division</button>
+          <table>
+        <tr>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td><span id="total">0</span></td>
+        </tr>
+    </table>
+    <script>
+    function add() {
+    let a = Number(document.getElementById("Val1").value);
+    let b = Number(document.getElementById("Val2").value);
+    document.getElementById("total").innerHTML = a + b;
+}
+
+function sub() {
+    let a = Number(document.getElementById("Val1").value);
+    let b = Number(document.getElementById("Val2").value);
+    document.getElementById("total").innerHTML = a - b;
+}
+
+function mul() {
+    let a = Number(document.getElementById("Val1").value);
+    let b = Number(document.getElementById("Val2").value);
+    document.getElementById("total").innerHTML = a * b;
+}
+
+function div() {
+    let a = Number(document.getElementById("Val1").value);
+    let b = Number(document.getElementById("Val2").value);
+
+    if (b == 0) {
+        document.getElementById("total").innerHTML = "Cannot divide by zero";
+    } else {
+        document.getElementById("total").innerHTML = a / b;
+    }
+}
+</script>
+</body>
+</html>

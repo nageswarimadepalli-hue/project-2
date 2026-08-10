@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hasini Bridal Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(200, 162, 200, 1),
+        rgba(230, 230, 250, 1)
+    );
+    color:#4F433E;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background: rgb(84, 1, 77);
+    color: white;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+    z-index:500;
+    height:60px;
+
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-area img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+}
+.logo-area h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+    padding:15px 8%;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    background:#F8EEE7;
+    color:#B17850;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    padding:120px 8% 60px;
+    display:grid;
+    grid-template-columns:45% 55%;
+    gap:50px;
+    align-items:center;
+}
+
+.tag{
+    display:inline-block;
+    background:#F8EEE7;
+    color:#B17850;
+    padding:10px 20px;
+    border-radius:50px;
+    margin-bottom:20px;
+}
+
+.hero-content h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:75px;
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    color:#666;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.book-btn{
+    display:inline-block;
+    background:#ac2174;
+    color:white;
+    padding:15px 35px;
+    text-decoration:none;
+    border-radius:40px;
+}
+.slider-container{
+    position:relative;
+    width:100%;
+    height:800px;
+}
+
+.slider{
+    position:relative;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    opacity:0;
+    transition:1s;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,0.9);
+    font-size:24px;
+    cursor:pointer;
+    z-index:100;
+}
+
+.prev{
+    left:15px;
+}
+
+.next{
+    right:15px;
+}
+
+.prev:hover,
+.next:hover{
+     background: rgba(41, 128, 185, 1);
+}
+
+
+/* COMMON */
+ h2{
+    text-align: center;
+    padding: 30px;
+ }
+section{
+    padding:90px 8%;
+}
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.4s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 25px rgba(0,0,0,.12);
+}
+
+.card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    display:block;
+}
+
+.card h3{
+    text-align:center;
+    padding:18px;
+    color:#B17850;
+    font-size:22px;
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+
+.services-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+/* GALLERY */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.05);
+}
+
+/* ABOUT */
+
+.about{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:1.9;
+}
+
+/* MAP */
+
+.map iframe{
+    width:100%;
+    height:450px;
+    border:none;
+    border-radius:20px;
+}
+.contact-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.contact-card{
+    max-width:700px;
+    width:100%;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.contact-card h3{
+    font-size:32px;
+    margin-bottom:15px;
+    color:#B17850;
+}
+
+.contact-card p{
+    color:#666;
+    line-height:1.8;
+}
+
+.contact-info{
+    margin-top:25px;
+}
+
+.contact-info p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+.social-links{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.social-links a{
+    text-decoration:none;
+    background:#D7B799;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.social-links a:hover{
+    background:rgb(208, 33, 91);
+    transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    background:#F8EEE7;
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+    grid-template-columns:1fr;
+}
+
+.hero-content h1{
+    font-size:50px;
+}
+
+.slider-container{
+    height:400px;
+}
+
+.gallery-grid{
+    grid-template-columns:1fr;
+}
+
+.nav-links{
+    display:none;
+    height: 10vh;
+}
+  
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo-area">
+
+<img src="logo.jpg.jpeg">
+
+<h2>Hasini Bridal Studio</h2>
+
+</div>
+
+<div class="nav-links">
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<span class="tag">
+Luxury Bridal Beauty Studio
+</span>
+
+<h1>
+Hasini Bridal Studio
+</h1>
+
+<p>
+Creating timeless bridal beauty through premium makeup,
+hairstyling, saree draping and personalized wedding styling.
+Making every bride look radiant, elegant and unforgettable.
+</p>
+
+<a href="form.html" class="book-btn">
+Book Appointment
+</a>
+</div>
+
+<div class="slider-container">
+
+    <div class="slider">
+
+        <img src="gal1.jpg.jpg" class="slide active">
+
+        <img src="gal2.jpg.jpg" class="slide">
+        
+        <img src="party.jpg" class="slide">
+
+           <img src="h3.jpg.jpeg" class="slide">
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+</div>
+
+</section>
+<section id="services">
+<h2 class="section-title">Our Services</h2>
+
+<div class="services-grid">
+
+<div class="card">
+    <img src="bridal.jpg" alt="">
+    <h3>Bridal Makeup</h3>
+</div>
+
+<div class="card">
+    <img src="hair.jpg" alt="">
+    <h3>Hair Styling</h3>
+</div>
+
+<div class="card">
+    <img src="saree.jpg" alt="">
+    <h3>Saree Draping</h3>
+</div>
+
+<div class="card">
+    <img src="party.jpg" alt="">
+    <h3>Party Makeup</h3>
+</div>
+
+<div class="card">
+    <img src="mehandi.jpg" alt="">
+    <h3>Mehandi</h3>
+</div>
+
+<div class="card">
+    <img src="nail.jpg.jpg" alt="">
+    <h3>Nail Art</h3>
+</div>
+
+</div>
+
+</section>
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2 class="section-title">Gallery</h2>
+
+<div class="gallery-grid">
+
+<img src="h1.jpg.jpeg">
+
+<img src="h2.jpg.jpeg">
+
+<img src="h3.jpg.jpeg">
+
+<img src="h4.jpg.jpeg">
+
+<img src="h5.jpg.jpeg">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4sgBJzF7yBvIq7rBEBDSLYYtarIATYDSWAQ&s">
+
+</div>
+
+</section>
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title">
+About Us
+</h2>
+
+<div class="about">
+
+<p>
+
+Welcome to Hasini Bridal Studio, where beauty meets elegance and every bride's dream look becomes reality.
+
+We specialize in bridal makeup, hairstyling, saree draping, engagement makeup, reception styling and complete bridal grooming services.
+
+Our experienced artists use premium products, modern techniques and personalized styling to create flawless looks that last throughout your special day.
+
+From traditional South Indian bridal transformations to modern contemporary bridal styles, we ensure every client receives individual attention and professional service.
+
+At Hasini Bridal Studio, our goal is to make every bride feel confident, radiant and unforgettable.
+
+Your happiness and satisfaction are our greatest achievements.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- MAP -->
+
+<section class="map">
+
+<h2 class="section-title">
+Visit Our Studio
+</h2>
+
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3815.398580640595!2d81.79498319999999!3d17.0041084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37a3937c20a4a1%3A0xc57831a19d4a9fc5!2sTilak%20Rd%2C%20Gandhipuram%2C%20Rajamahendravaram%2C%20Andhra%20Pradesh%20533103!5e0!3m2!1sen!2sin!4v1780309655319!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"">
+</iframe>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Contact Us</h2>
+
+<div class="contact-container">
+
+    <div class="contact-card">
+
+        <h3>Hasini Bridal Studio</h3>
+
+        <p>
+            We would love to be a part of your special day.
+            Contact us for bridal makeup, hairstyling, saree draping,
+            engagement and reception packages.
+        </p>
+
+        <div class="contact-info">
+
+            <p>📞 +91 82475 37649</p>
+
+            <p>📧 hasinibridalstudio@gmail.com</p>
+
+            <p>📍 Tilak Rd,Rajamahendravaram, Andhra Pradesh</p>
+
+        </div>
+
+        <div class="social-links">
+
+            <a href="https://wa.me/8247537649" target="_blank">
+                WhatsApp
+            </a>
+
+            <a href="https://instagram.com/your_instagram_id" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://facebook.com/your_facebook_page" target="_blank">
+                Facebook
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Hasini Bridal Studio. All Rights Reserved.
+
+</footer>
+
+<script>
+
+const slides = document.querySelectorAll('.slide');
+
+let current = 0;
+
+function showSlide(index){
+
+slides.forEach(slide=>{
+slide.classList.remove('active');
+});
+
+slides[index].classList.add('active');
+}
+
+document.querySelector('.next').onclick=()=>{
+
+current++;
+
+if(current >= slides.length){
+current = 0;
+}
+
+showSlide(current);
+};
+
+document.querySelector('.prev').onclick=()=>{
+
+current--;
+
+if(current < 0){
+current = slides.length-1;
+}
+
+showSlide(current);
+};
+
+setInterval(()=>{
+
+current++;
+
+if(current >= slides.length){
+current = 0;
+}
+
+showSlide(current);
+
+},4000);
+
+</script>
+
+</body>
+</html>

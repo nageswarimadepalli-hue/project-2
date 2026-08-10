@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Stock System</title>
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#f4f4f4;
+            font-family:Arial;
+        }
+
+        .box{
+            width:350px;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        input, button{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+        }
+
+        button{
+            cursor:pointer;
+        }
+
+        #result{
+            margin-top:15px;
+            font-weight:bold;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h3 style="text-align:center;">Stock Manager</h3>
+
+    <input type="text" id="item" placeholder="Enter item name">
+    <input type="number" id="qty" placeholder="Enter quantity">
+
+    <button onclick="addStock()">Add Stock</button>
+    <button onclick="removeStock()">Remove Stock</button>
+    <button onclick="checkStock()">Check Stock</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+let stock = {
+    rice: 50,
+    sugar: 20,
+    oil: 15,
+    milk: 10,
+    salt: 25
+};
+
+function addStock(){
+    let item = document.getElementById("item").value.toLowerCase();
+    let qty = Number(document.getElementById("qty").value);
+
+    if(stock[item]){
+        stock[item] += qty;
+    } else {
+        stock[item] = qty;
+    }
+
+    document.getElementById("result").innerText =
+        item + " added/updated in stock";
+}
+
+function removeStock(){
+    let item = document.getElementById("item").value.toLowerCase();
+    let qty = Number(document.getElementById("qty").value);
+
+    if(stock[item]){
+        stock[item] -= qty;
+
+        if(stock[item] <= 0){
+            delete stock[item];
+            document.getElementById("result").innerText =
+                item + " removed from stock";
+        } else {
+            document.getElementById("result").innerText =
+                qty + " " + item + " removed";
+        }
+    } else {
+        document.getElementById("result").innerText =
+            "Item not found";
+    }
+}
+
+function checkStock(){
+    let item = document.getElementById("item").value.toLowerCase();
+    let qty = Number(document.getElementById("qty").value);
+
+    if(stock[item] && stock[item] >= qty){
+        document.getElementById("result").innerText =
+            item + " is In Stock (" + stock[item] + " available)";
+    } else {
+        document.getElementById("result").innerText =
+            item + " is Out of Stock";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CIBIL Score</title>
+</head>
+<body>
+
+<h2>Loan Eligibility</h2>
+
+<input type="number" id="score" placeholder="Enter CIBIL Score">
+<button onclick="loan()">Check</button>
+
+<h3 id="result"></h3>
+
+<script>
+function loan() {
+    let score = Number(document.getElementById("score").value);
+
+    if (score > 750) {
+        result.innerHTML = "Loan Approved";
+    } else if (score >= 650) {
+        result.innerHTML = "Under Review";
+    } else {
+        result.innerHTML = "Loan Rejected";
+    }
+}
+</script>
+
+</body>
+</html>

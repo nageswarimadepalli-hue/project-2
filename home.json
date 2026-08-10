@@ -1,0 +1,124 @@
+{
+  "version": "0.4",
+  "title": "Landing Page",
+  "type": "page",
+  "content": [
+    {
+      "id": "hero-section",
+      "elType": "section",
+      "settings": {},
+      "elements": [
+        {
+          "id": "hero-column",
+          "elType": "column",
+          "settings": {},
+          "elements": [
+            {
+              "id": "heading1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Discover Ideas & Inspiration",
+                "align": "center",
+                "size": "xl"
+              }
+            },
+            {
+              "id": "text1",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "Explore creative designs, trends, and collections",
+                "align": "center"
+              }
+            },
+            {
+              "id": "button1",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Get Started",
+                "align": "center",
+                "background_color": "#E60023",
+                "text_color": "#ffffff"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "features-section",
+      "elType": "section",
+      "settings": {},
+      "elements": [
+        {
+          "id": "col1",
+          "elType": "column",
+          "elements": [
+            {
+              "id": "f1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Save Ideas"
+              }
+            },
+            {
+              "id": "f1text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "Bookmark your favorite inspirations"
+              }
+            }
+          ]
+        },
+        {
+          "id": "col2",
+          "elType": "column",
+          "elements": [
+            {
+              "id": "f2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Discover Trends"
+              }
+            },
+            {
+              "id": "f2text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "Stay updated with latest designs"
+              }
+            }
+          ]
+        },
+        {
+          "id": "col3",
+          "elType": "column",
+          "elements": [
+            {
+              "id": "f3",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Create Collections"
+              }
+            },
+            {
+              "id": "f3text",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "Organize your ideas easily"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .booking-form{
+    width:100%;
+    max-width:600px;
+    margin:auto;
+    background:#fff;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.booking-form h1{
+    text-align:center;
+    color:#B17850;
+    margin-bottom:25px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:45px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#D7B799;
+}
+
+.submit-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:40px;
+    background:#D7B799;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    background:#B17850;
+}
+      /*Home-Btn*/
+   .home-btn{
+    text-align:center;
+    margin-top:20px;
+}
+
+.home-btn a{
+    text-decoration:none;
+    background:#ff69b4;
+    color:white;
+    padding:10px 20px;
+    border-radius:5px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.home-btn a:hover{
+    background:#e75480;
+}
+    </style>
+</head>
+<body>
+    <form class="booking-form">
+
+    <h1>Book Appointment</h1>
+
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Service</label>
+        <select required>
+            <option value="">Select Service</option>
+            <option>Bridal Makeup</option>
+            <option>Hair Styling</option>
+            <option>Saree Draping</option>
+            <option>Party Makeup</option>
+            <option>Mehandi</option>
+            <option>Nail Art</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Enter phone number" required>
+    </div>
+
+    <div class="form-group">
+        <label>Message</label>
+        <textarea rows="4" placeholder="Your requirements..."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">
+        Book Now
+    </button>
+    <body>
+
+<div>
+    <table>
+        <!-- GST Table -->
+    </table>
+
+    <div class="home-btn">
+        <a href="hasini.html">Back-Home</a>
+    </div>
+</div>
+</form>
+</body>
+</html>

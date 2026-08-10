@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experience Bonus</title>
+</head>
+<body>
+
+<h2>Employee Bonus</h2>
+
+<input type="number" id="exp" placeholder="Experience (Years)">
+<button onclick="bonus()">Check</button>
+
+<h3 id="result"></h3>
+
+<script>
+function bonus() {
+    let exp = Number(document.getElementById("exp").value);
+
+    if (exp >= 10) {
+        document.getElementById("result").innerHTML = "Bonus: 20%";
+    } else if (exp >= 5) {
+        document.getElementById("result").innerHTML = "Bonus: 10%";
+    } else {
+        document.getElementById("result").innerHTML = "Bonus: 5%";
+    }
+}
+</script>
+
+</body>
+</html>

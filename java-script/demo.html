@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Palindrome Checker</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f6ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .box {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 300px;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    button {
+        padding: 10px 15px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #45a049;
+    }
+
+    #result {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+</style>
+
+<script>
+function palindrome() {
+    let n = Number(document.getElementById("pal").value);
+    let temp = n;
+    let sum = 0;
+
+    while (n > 0) {
+        let rem = n % 10;
+        sum = sum * 10 + rem;
+        n = Math.floor(n / 10);
+    }
+
+    if (temp == sum) {
+        document.getElementById("result").innerHTML = "Palindrome";
+        document.getElementById("result").style.color = "green";
+    } else {
+        document.getElementById("result").innerHTML = "Not a Palindrome";
+        document.getElementById("result").style.color = "red";
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Palindrome Checker</h2>
+
+    <input type="number" id="pal" placeholder="Enter number">
+
+    <button onclick="palindrome()">Check</button>
+
+    <p id="result"></p>
+</div>
+
+</body>
+</html>

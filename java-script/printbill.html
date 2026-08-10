@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Market Billing App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #aedaf6;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 350px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calc-btn {
+            background-color: #46ecdb;
+            color: white;
+        }
+
+        .print-btn {
+            background-color: rgb(49, 0, 128);
+            color: white;
+        }
+
+        .close-btn {
+            background-color: rgb(187, 18, 75);
+            color: white;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(70, 119, 126, 0.5);
+        }
+
+        .popup-content {
+            background: white;
+            width: 320px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #21b7e0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🛒 Super Market Billing App</h2>
+
+    <label>Quantity</label><br>
+    <input type="number" id="qty" placeholder="Enter Quantity"><br>
+
+    <label>Price</label><br>
+    <input type="number" id="price" placeholder="Enter Price"><br>
+
+    <button class="calc-btn" onclick="bill()">Calculate</button>
+
+</div>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+
+    <div class="popup-content">
+
+        <h3>Bill Details</h3>
+
+        <p>Total : ₹<span id="total"></span></p>
+
+        <p>GST (18%) : ₹<span id="gst"></span></p>
+
+        <p><b>Amount : ₹<span id="amount"></span></b></p>
+
+        <button class="print-btn" onclick="printBill()">Print</button>
+
+        <button class="close-btn" onclick="closePopup()">Close</button>
+
+    </div>
+
+</div>
+
+<script>
+
+function bill()
+{
+    let q = Number(document.getElementById("qty").value);
+    let p = Number(document.getElementById("price").value);
+
+    if(q <= 0 || p <= 0)
+    {
+        alert("Please enter valid Quantity and Price");
+        return;
+    }
+
+    let total = q * p;
+    let gst = total * 18 / 100;
+    let amount = total + gst;
+
+    document.getElementById("total").innerHTML = total.toFixed(2);
+    document.getElementById("gst").innerHTML = gst.toFixed(2);
+    document.getElementById("amount").innerHTML = amount.toFixed(2);
+
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup()
+{
+    document.getElementById("popup").style.display = "none";
+}
+
+function printBill()
+{
+    window.print();
+}
+
+</script>
+
+</body>
+</html>

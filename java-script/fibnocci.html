@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f6ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .box {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        text-align: center;
+        width: 300px;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    button {
+            width:100%;
+            margin-top:10px;
+        padding: 10px 15px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #45a049;
+    }
+
+    #result {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+</style>
+
+        
+</head>
+<script>
+        function fibonacci() {
+            let n = Number(document.getElementById("fib").value);
+
+            let a = 0;
+            let b = 1;
+            let series = "";
+
+            for (let i = 0; i < n; i++) {
+                series += a + " ";
+
+                let temp = a + b;
+                a = b;
+                b = temp;
+            }
+
+            document.getElementById("result").innerHTML =
+                "Fibonacci Series: " + series;
+        }
+    </script>
+
+<body>
+    <div class="container">
+    <h3>fibonacci Series</h3>
+
+    <input type="number" id="fib" placeholder="number">
+    <button onclick="fibonacci()">click</button>
+    <p id="result"></p>
+    </div>
+</body>
+</html>
